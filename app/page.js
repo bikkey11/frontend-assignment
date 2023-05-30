@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react";
-import MovieCard from "../components/movieCard";
+import SongCard from "../components/songCard";
 import getTrackList from "./api/getChart";
 import Loading from "@/components/loading";
 
@@ -20,14 +20,14 @@ const HomePage = () => {
   }, []);
 
   // console.log(tracks)
-  if(loading){
+  if (loading) {
     return (
       <div className="grid place-items-center h-screen">
-        <Loading/>
+        <Loading />
       </div>
     )
   }
-  else{
+  else {
     return (
       <div className="bg-gradient-to-br from-slate-600 to-slate-800 my-2 mx-3 p-2 rounded-sm flex flex-col gap-9">
         <div>
@@ -37,12 +37,12 @@ const HomePage = () => {
         <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-y-5 justify-items-center ">
           {
             tracks ? tracks.map((track) => (
-              <MovieCard key={track.key} track={track} />
+              <SongCard key={track.key} track={track} />
             )) : (<></>)
           }
         </div>
-  
-  
+
+
       </div>
     )
   }

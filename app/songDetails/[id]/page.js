@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import getSongDetails from "../../api/getSongDetails"
 import Link from 'next/link';
 import Loading from '@/components/loading';
+import { motion } from "framer-motion"
+
 
 
 const DetailsPage = () => {
@@ -48,7 +50,7 @@ const DetailsPage = () => {
                         </div>
                         <Link href={details.sections['2'].youtubeurl.actions['0'].uri}
                             className='flex justify-end' >
-                            <span className=' border bg-white text-black p-1 rounded-md'>Watch Now</span>
+                            <motion.span whileTap={{scale:0.8}} className=' border bg-white text-black p-1 rounded-md'>Watch Now</motion.span>
                         </Link>
                     </div>
                 </> : <></>}

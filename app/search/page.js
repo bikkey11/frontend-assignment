@@ -5,6 +5,8 @@ import { AiOutlineSearch, AiFillPlayCircle } from "react-icons/ai";
 import SearchTrack from "../api/search";
 import Link from 'next/link';
 import Loading from "../../components/loading"
+import { motion } from "framer-motion"
+
 
 
 const SearchPage = () => {
@@ -48,19 +50,21 @@ const SearchPage = () => {
             <>
               <div className=' m-3'>
                 <div className='bg-gradient-to-r from-neutral-600 to-slate-800 rounded-lg p-2 grid sm:grid-cols-2 justify-items-center sm:justify-items-stretch'>
-                  <div className='grid  gap-3 bg-slate-700 max-w-[260px] p-1 shadow-2xl rounded-xl justify-items-center'>
+                  <motion.div className='grid  gap-3 bg-slate-700 max-w-[260px] p-1 shadow-2xl rounded-xl justify-items-center cursor-pointer' whileHover={{scale:0.9}}>
                     <h1 className='text-5xl'>Top Result</h1>
                     <img src={result.tracks.hits['0'].track.images.background} alt="Not Found" className='h-40 w-40' />
                     <div>
                       <h2>{result.tracks.hits['0'].track.title}</h2>
                       <span>By {result.tracks.hits['0'].track.subtitle}</span>
                     </div>
-                  </div>
+                  </motion.div>
                   <div className='flex flex-col gap-3'>
                     <h2 className='text-2xl'>Songs</h2>
                     {
                       result.tracks.hits.map((track) => (
-                        <div key={track.track.key} className='flex justify-between bg-slate-800 p-1 items-center rounded gap-14'>
+                        <motion.div
+                        whileHover={{scale:1.2}}
+                        key={track.track.key} className='flex justify-between bg-slate-800 p-1 items-center rounded gap-14 cursor-pointer'>
                           <img src={track.track.images.background} className='rounded-full h-8 w-8' alt="" />
                           <div>
                             <h2 className='text-sm'>{track.track.title}</h2>
@@ -69,7 +73,7 @@ const SearchPage = () => {
                           <Link href={track.track.url}>
                             <AiFillPlayCircle></AiFillPlayCircle>
                           </Link>
-                        </div>
+                        </motion.div>
                       ))
                     }
                   </div>

@@ -1,6 +1,11 @@
+"use client"
+
 import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineSearch } from "react-icons/ai"
+import { motion } from "framer-motion"
+
+
 const Navbar = () => {
     return (
         <div className='bg-slate-800 flex  justify-between px-6 sm:px-16 py-3 gap-3'>
@@ -16,7 +21,7 @@ const Navbar = () => {
             </Link>
             <Link href="/search" className="items-center flex justify-center text-black">
                 {/* <span className=" rounded-l-full  px-3 py-1  bg-slate-300 ">Search</span> */}
-                <span className="rounded-full border  bg-slate-300 px-2 py-2"><AiOutlineSearch /></span>
+                <motion.span whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} className="rounded-full border  bg-slate-300 px-2 py-2"><AiOutlineSearch /></motion.span>
             </Link>
         </div>
     )
