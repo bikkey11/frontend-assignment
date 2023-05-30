@@ -7,7 +7,7 @@ import Link from 'next/link';
 import Loading from '@/components/loading';
 
 
-const page = () => {
+const DetailsPage = () => {
     const pathname = usePathname();
     const songKey = pathname.split('/')[2];
     const [details, setdetails] = useState({})
@@ -59,7 +59,7 @@ const page = () => {
 
 }
 
-export default page;
+export default DetailsPage;
 
 
 

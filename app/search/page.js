@@ -1,4 +1,5 @@
 "use client"
+
 import { useState } from 'react'
 import { AiOutlineSearch, AiFillPlayCircle } from "react-icons/ai";
 import SearchTrack from "../api/search";
